@@ -1,0 +1,425 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Content\Character\Animation\Male\male_dead.png" />
+    <None Remove="Content\Character\Animation\Male\male_default.png" />
+    <None Remove="Content\Character\Animation\Male\male_fire.png" />
+    <None Remove="Content\Character\Animation\Male\male_hit.png" />
+    <None Remove="Content\Character\Animation\Male\male_walk.png" />
+    <None Remove="Content\Character\Animation\Zombie\zombie_attack.png" />
+    <None Remove="Content\Character\Animation\Zombie\zombie_dead.png" />
+    <None Remove="Content\Character\Animation\Zombie\zombie_default.png" />
+    <None Remove="Content\Character\Animation\Zombie\zombie_run.png" />
+    <None Remove="Content\Cursor\CursorArrow.xnb" />
+    <None Remove="Content\Fonts\Arial16.xnb" />
+    <None Remove="Content\Fonts\Roboto_Condensed-Bold.spritefont" />
+    <None Remove="Content\Fonts\Rubik-Black.ttf" />
+    <None Remove="Content\Tiles\Background - Archology South Dock Overlook.png" />
+    <None Remove="Content\Tiles\Concrete Ground Square Tile.png" />
+    <None Remove="Content\Tiles\Dusty Concrete -Light.png" />
+    <None Remove="Content\Tiles\Greenway Bright - E bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright - N bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright - NExSW.png" />
+    <None Remove="Content\Tiles\Greenway Bright - NWxSE.png" />
+    <None Remove="Content\Tiles\Greenway Bright - octagon cross.png" />
+    <None Remove="Content\Tiles\Greenway Bright - S bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright - T cross NE.png" />
+    <None Remove="Content\Tiles\Greenway Bright - T cross NW.png" />
+    <None Remove="Content\Tiles\Greenway Bright - T cross SE.png" />
+    <None Remove="Content\Tiles\Greenway Bright - T cross SW.png" />
+    <None Remove="Content\Tiles\Greenway Bright - W bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright - X cross.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - E bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - N bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - NExSW.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - NWxSE.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - octagon cross.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - S bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - T cross NE.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - T cross NW.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - T cross SE.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - T cross SW.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - W bend.png" />
+    <None Remove="Content\Tiles\Greenway Bright Flowers - X cross.png" />
+    <None Remove="Content\Tiles\Greenway Dark - E bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark - N bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark - NExSW.png" />
+    <None Remove="Content\Tiles\Greenway Dark - NWxSE.png" />
+    <None Remove="Content\Tiles\Greenway Dark - octagon cross.png" />
+    <None Remove="Content\Tiles\Greenway Dark - S bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark - T cross NE.png" />
+    <None Remove="Content\Tiles\Greenway Dark - T cross NW.png" />
+    <None Remove="Content\Tiles\Greenway Dark - T cross SE.png" />
+    <None Remove="Content\Tiles\Greenway Dark - T cross SW.png" />
+    <None Remove="Content\Tiles\Greenway Dark - W bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark - X cross.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - E bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - N bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - NExSW.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - NWxSE.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - octagon cross.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - S bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - T cross NE.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - T cross NW.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - T cross SE.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - T cross SW.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - W bend.png" />
+    <None Remove="Content\Tiles\Greenway Dark Flowers - X cross.png" />
+    <None Remove="Content\Tiles\Park 4x4.png" />
+    <None Remove="Content\Tiles\Park 4x4flatsides.png" />
+    <None Remove="Content\Tiles\Park 4x5A.png" />
+    <None Remove="Content\Tiles\park 4x5B.png" />
+    <None Remove="Content\Tiles\Park 5x5.png" />
+    <None Remove="Content\Tiles\Park angle edge A.png" />
+    <None Remove="Content\Tiles\Paved Road III - E bend.png" />
+    <None Remove="Content\Tiles\Paved Road III - N bend.png" />
+    <None Remove="Content\Tiles\Paved Road III - NExSW.png" />
+    <None Remove="Content\Tiles\Paved Road III - NWxSE.png" />
+    <None Remove="Content\Tiles\Paved Road III - octagon cross.png" />
+    <None Remove="Content\Tiles\Paved Road III - S bend.png" />
+    <None Remove="Content\Tiles\Paved Road III - T cross NE.png" />
+    <None Remove="Content\Tiles\Paved Road III - T cross NW.png" />
+    <None Remove="Content\Tiles\Paved Road III - T cross SE.png" />
+    <None Remove="Content\Tiles\Paved Road III - T cross SW.png" />
+    <None Remove="Content\Tiles\Paved Road III - W bend.png" />
+    <None Remove="Content\Tiles\Paved Road III - X cross.png" />
+    <None Remove="Content\Tiles\Tiled Ground flat edge east.png" />
+    <None Remove="Content\Tiles\Tiled Ground flat edge north.png" />
+    <None Remove="Content\Tiles\Tiled Ground flat edge south.png" />
+    <None Remove="Content\Tiles\Tiled Ground flat edge west.png" />
+    <None Remove="Content\Tiles\Tiled Ground.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile A with curb.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile A.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile B with curb.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile B.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile C.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile D.png" />
+    <None Remove="Content\Tiles\Urban Developed Ground Tile E.png" />
+    <None Remove="Content\UI\SimpleBtn.xnb" />
+    <None Remove="Content\UI\solid.xnb" />
+    <None Remove="Icon.ico" />
+    <None Remove="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Character\Animation\Male\male_dead.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Male\male_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Male\male_fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Male\male_hit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Male\male_walk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Zombie\zombie_attack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Zombie\zombie_dead.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Zombie\zombie_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\Zombie\zombie_run.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Cursor\CursorArrow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\Arial16.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\Roboto_Condensed-Bold.spritefont">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\Rubik-Black.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Background - Archology South Dock Overlook.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Concrete Ground Square Tile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Dusty Concrete -Light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - E bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - N bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - NExSW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - NWxSE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - octagon cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - S bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - T cross NE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - T cross NW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - T cross SE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - T cross SW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - W bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright - X cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - E bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - N bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - NExSW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - NWxSE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - octagon cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - S bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - T cross NE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - T cross NW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - T cross SE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - T cross SW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - W bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Bright Flowers - X cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - E bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - N bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - NExSW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - NWxSE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - octagon cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - S bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - T cross NE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - T cross NW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - T cross SE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - T cross SW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - W bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark - X cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - E bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - N bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - NExSW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - NWxSE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - octagon cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - S bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - T cross NE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - T cross NW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - T cross SE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - T cross SW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - W bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Greenway Dark Flowers - X cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Park 4x4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Park 4x4flatsides.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Park 4x5A.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\park 4x5B.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Park 5x5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Park angle edge A.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - E bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - N bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - NExSW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - NWxSE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - octagon cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - S bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - T cross NE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - T cross NW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - T cross SE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - T cross SW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - W bend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Paved Road III - X cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Tiled Ground flat edge east.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Tiled Ground flat edge north.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Tiled Ground flat edge south.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Tiled Ground flat edge west.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Tiled Ground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile A with curb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile A.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile B with curb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile B.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile C.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile D.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\Urban Developed Ground Tile E.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\SimpleBtn.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\solid.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico">
+      <LogicalName>Icon.ico</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icon.bmp">
+      <LogicalName>Icon.bmp</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.2.1105" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.2.1105" /> 
+  </ItemGroup>
+
+    <ItemGroup>
+
+	    <ProjectReference Include="..\Flat\Flat\Flat.csproj" />
+	</ItemGroup>
+
+	<Target Name="RestoreDotnetTools" BeforeTargets="Restore">
+    <Message Text="Restoring dotnet tools" Importance="High" />
+    <Exec Command="dotnet tool restore" />
+  </Target>
+</Project>
