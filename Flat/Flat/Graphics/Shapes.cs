@@ -752,7 +752,7 @@ namespace Flat.Graphics
     
 
             // Default thickness with no zoom.
-            float thickness = 2f;
+            float thickness = 1f;
 
             // If we are using the world camera then we need to adjust the "thickness" of the line
             //  so no matter how far we have "zoomed" into the world the line will look the same.
@@ -984,13 +984,13 @@ namespace Flat.Graphics
 
             for (int i = 0; i < points; i++)
             {
-                // Perform a 2D rotation transform to get the next point on the circle.
+                // Perform a 2D rotation transform to get the pathway.next point on the circle.
                 float bx = ax * cos - ay * sin;
                 float by = ax * sin + ay * cos;
 
                 this.DrawLine(ax + x, ay + y, bx + x, by + y, color);
 
-                // Save the last transform for the next transform in the loop.
+                // Save the last transform for the pathway.next transform in the loop.
                 ax = bx;
                 ay = by;
             }
@@ -1023,13 +1023,13 @@ namespace Flat.Graphics
 
             for (int i = 0; i < points; i++)
             {
-                // Perform a 2D rotation transform to get the next point on the circle.
+                // Perform a 2D rotation transform to get the pathway.next point on the circle.
                 float bx = ax * cos - ay * sin;
                 float by = ax * sin + ay * cos;
 
                 this.GetLine(ax, ay, bx, by, color, vertices, indices, ref vertexCount, ref indexCount);
 
-                // Save the last transform for the next transform in the loop.
+                // Save the last transform for the pathway.next transform in the loop.
                 ax = bx;
                 ay = by;
             }
@@ -1157,7 +1157,7 @@ namespace Flat.Graphics
 
                 this.DrawLine(x1, y1, x2, y2, color);
 
-                // Make the 2nd vertex the first vertex for the next line.
+                // Make the 2nd vertex the first vertex for the pathway.next line.
                 x1 = x2;
                 y1 = y2;
             }

@@ -55,9 +55,9 @@ namespace isocraft
             Dead,
         }
 
-        public Zombie(string path, Vector2 init_pos, int dir, string name = null) :
+        public Zombie(string path, Vector2 init_pos, int dir, string name = null,List<Point> patrol = null) :
     base(path, init_pos, zombie_Dims, dir, dirNum, zombie_range, zombie_Frames, zombie_animation_num,
-    (int)(zombie_Frames.X * zombie_Frames.Y), millisecondFrame, name ?? "Idle")
+    (int)(zombie_Frames.X * zombie_Frames.Y), millisecondFrame, name ?? "Idle",patrol)
         {
         
             cur_health = health;
@@ -67,10 +67,6 @@ namespace isocraft
             AddAnimation(new Vector2(8, 5), "Character\\Animation\\Zombie\\zombie_run", 40, millisecondFrame, "Run", 1);
             AddAnimation(new Vector2(8, 3), "Character\\Animation\\Zombie\\zombie_attack", 24, millisecondFrame*2, "Attack", 2);
             AddAnimation(new Vector2(8, 4), "Character\\Animation\\Zombie\\zombie_dead", 32, millisecondFrame, "Dead", 3,false);
-
-           
-
-
         }
 
         public override void Get_Hit(int damage)
@@ -98,14 +94,10 @@ namespace isocraft
         public override void Update()
         {
 
-   
-
             if (Destroy || !updateRequired)
             {
                 return;
             }
-
-           
 
             switch (status)
             {
@@ -124,8 +116,8 @@ namespace isocraft
                     if (currentAnimation != 0)
                     {
                         ChangeCurrentAnimation(0);
-                        path_past_pos.X = -1;
-                        path_next_pos.X = -1;
+                        pathway.past.X = -1;
+                        pathway.next.X = -1;
                         target = null;
                         moving_target = null;
                         PathReach = false;   
@@ -213,23 +205,26 @@ namespace isocraft
             //range만큼만 움직이게끔해야함
 
 
-            if (Path.Count == 0 && PathReach)
+            if (Path.Count == 0)
             {
-                pos = path_next_pos.ToVector2();
-                status = zombie_Status.Idle;
-                Console.WriteLine(pos);
-                return;
+                if (PathReach)
+                {
+                    pos = pathway.next.ToVector2();
+                    status = zombie_Status.Idle;
+                    return;
+                }
+            
             }
 
 
-            if (path_past_pos.X == -1 || PathReach)
+            else if (pathway.past.X == -1 || PathReach)
             {
-                path_past_pos = (path_past_pos.X == -1) ? pos.ToPoint() : path_next_pos;
+                pathway.past = (pathway.past.X == -1) ? pos.ToPoint() : pathway.next;
 
-                path_next_pos = Path.Pop();
+                pathway.next = Path.Pop();
               
 
-                Vector2 dirVector = new Vector2(path_next_pos.X - pos.X, path_next_pos.Y - pos.Y);
+                Vector2 dirVector = new Vector2(pathway.next.X - pos.X, pathway.next.Y - pos.Y);
                 int dir = BFS.Instance.Direction(dirVector);
                 ChangeDirCurrentAnimaition(dir);
 
@@ -238,15 +233,15 @@ namespace isocraft
             }
 
 
-            if (FlatMath.Distance(pos, path_next_pos.ToVector2()) < 0.1f)
+            if (FlatMath.Distance(pos, pathway.next.ToVector2()) < 0.1f)
             {
                 PathReach = true;
                 return;
             }
 
             Vector2 delta = new Vector2(
-                path_next_pos.X - path_past_pos.X,
-                path_next_pos.Y - path_past_pos.Y
+                pathway.next.X - pathway.past.X,
+                pathway.next.Y - pathway.past.Y
             );
 
             float moveAmount = (float)Game1.GameTime * Speed;
@@ -264,7 +259,7 @@ namespace isocraft
             //    sprite.Draw(model, new Rectangle((int)(pos.X+o.X), (int)(pos.Y+o.Y), (int)dims.X, (int)dims.Y), Color.White,flatBody.Angle,
             //       new Vector2(model.Bounds.Width / 2, model.Bounds.Height / 2));
 
-            base.Draw(sprite, dir);
+            base.Draw(sprite);     
         }
 
         public override void Selected()
@@ -317,25 +312,24 @@ namespace isocraft
             {
 
 
-                if (BFS.Instance.Enemy_Can_Detect_360deg_melee(pos.ToPoint(), (int)(zombie_sight * 1.5), out Heros detect_hero))
+                if (BFS.Instance.Enemy_Can_Detect_360deg_melee(pos.ToPoint(), (int)(zombie_sight * 1.5),this, out Heros detect_hero))
                 {
                     
 
 
-                    Path = BFS.Instance.EnemyMeleeMove(detect_hero.pos.ToPoint() - pos.ToPoint(), zombie_range, cur_act,zombie_sight, out int cost, out Point fn_point);
+                    Path = BFS.Instance.EnemyMeleeMove(detect_hero.pos.ToPoint() - pos.ToPoint(), zombie_range, cur_act, out int cost, out Point fn_point);
 
                     cost = (cost + zombie_range - 1) / zombie_range;
 
                     // 올림용으로 zombie_range-1 
-                    cur_act -= cost;
+                    cur_act = Math.Max(0, cur_act-cost);
                     status = zombie_Status.Moving;
                     moving_target = detect_hero;
-                    path_move_start_pos = this.pos.ToPoint();
+                    pathway.start = this.pos.ToPoint();
                     ChangeCurrentAnimation(1);
 
 
-                    Console.WriteLine(path_move_start_pos);
-                    Console.WriteLine(fn_point);
+    
 
                     Coordinate.Instance.Move_Unit(pos.ToPoint(), fn_point, new Point((int)GameEnums.Type.Enemy, (int)GameEnums.Enemy.zombie));
 
@@ -359,7 +353,7 @@ namespace isocraft
             //    status = zombie_Status.Moving;
             //    Path = BFS.Instance.Move(point - pos.ToPoint());
 
-            //    path_move_start_pos = this.pos.ToPoint();
+            //    pathway.start = this.pos.ToPoint();
 
             //    updateRequired = true;
 

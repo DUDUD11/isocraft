@@ -24,7 +24,7 @@ namespace isocraft
 
         public UIEntity(string path, Vector2 init_pos, Vector2 dims,bool active, int dir,int dirNum, 
             Vector2 Frame, int animation_num, int millisecondFrame, string name = null) :
-    base(path, init_pos, dims, dir, dirNum, Frame, animation_num,
+    base(path, init_pos, dims, dir,0, dirNum, Frame, animation_num,
     (int)(Frame.X * Frame.Y), millisecondFrame, name ?? "Idle")
         {
             this.active = active;
@@ -38,22 +38,13 @@ namespace isocraft
             base.Update();
         }
 
-        public override void Draw(Sprites sprite, int dir)
-        {
-            if (!active) return;
-            base.Draw(sprite, dir);
-        }
-
-
-        public override void Draw(Sprites sprite)
-        {
-            if (!active) return;
-            base.Draw(sprite, 0);
-        }
+     
 
         public bool Hover(Vector2 mousePosition)
         {
             if (!active) { return false; }
+
+            
 
             float min_x = pos.X - dims.X / 2;
             float max_x = pos.X + dims.X / 2;

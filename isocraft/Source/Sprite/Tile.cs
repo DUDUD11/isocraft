@@ -24,61 +24,49 @@ namespace isocraft
         //       3    5
         //         4
 
-        int z = 1;
+        int z = 0;
 
         Point center_pos;
         Rectangle draw_rect;
-        float angle;
+       
 
-        public Tile(string path, Vector2 init_pos, Vector2 dims, int dir,int z) : 
-            base(path, init_pos, dims, dir)
+        public Tile(string path, Vector2 init_pos, Vector2 dims, int angle,int z) : 
+            base(path, init_pos, dims, angle)
         {
             this.z = z;
 
-            // 1일때 그대로
-            // 2일때 0.5 * tilesize
-            //3일때 1.0
+        }
 
-            dims = TileMap.Tile_Size * dims / FlatMath.InvSqrt2;
-              
-
-            center_pos.X = (int)(init_pos.X + (dims.X - 1)) * TileMap.Tile_Size;
-            center_pos.Y = (int)(init_pos.Y + (dims.Y - 1)) * TileMap.Tile_Size;
-            draw_rect = new Rectangle(center_pos, dims.ToPoint());
-            angle = dir * MathHelper.PiOver4;
+        public Tile Clone()
+        {
+            return new Tile(this.url, this.pos, this.dims, (int)((this.angle+0.01f) / MathHelper.PiOver4), this.z);
+        
         }
 
         public override void Draw(Sprites sprite)
         {
-            sprite.Draw(model,draw_rect,Color.White, rotation: angle,Vector2.Zero);
+           
+
+            Vector2 _dim = TileMap.Tile_Size * dims;
+            Vector2 point = Coordinate.ToIsometric(pos.X, pos.Y);
+
+            Rectangle draw_rect = new Rectangle(point.ToPoint(), _dim.ToPoint());
+
+         //   Console.WriteLine(_dim);
+            
+            sprite.Draw(model,draw_rect,Color.White,0f,new Vector2(model.Bounds.Width/2,model.Bounds.Height/2));
         }
 
-        public static Point Center_Pos(Vector2 pos, Point dims)
-        { 
-            int x = (int)(pos.X + (dims.X - 1)) * TileMap.Tile_Size;
-            int y = (int)(pos.Y + (dims.Y - 1)) * TileMap.Tile_Size;
+        //public static Point Center_Pos(Vector2 pos, Point dims)
+        //{ 
+        //    int x = (int)(pos.X + (dims.X - 1)) * TileMap.Tile_Size;
+        //    int y = (int)(pos.Y + (dims.Y - 1)) * TileMap.Tile_Size;
 
-            return new Point(x, y);
-        }
+        //    return new Point(x, y);
+        //}
 
-        public void Change_Dims(Point Add)
-        {
-            if ((Add.X < 0 && (dims.X <= TileMap.Tile_Size / FlatMath.InvSqrt2 + 0.1f)) || (Add.Y < 0 && (dims.Y <= TileMap.Tile_Size / FlatMath.InvSqrt2 + 0.1f)))
-                return;
+     
 
-
-            dims += TileMap.Tile_Size * dims / FlatMath.InvSqrt2;
-
-            center_pos.X = (int)(pos.X + (dims.X - 1)) * TileMap.Tile_Size;
-            center_pos.Y = (int)(pos.Y + (dims.Y - 1)) * TileMap.Tile_Size;
-            draw_rect = new Rectangle(center_pos, dims.ToPoint());
-        }
-
-        public void Change_Dir(int Add)
-        {
-            dir += Add;
-            angle = dir * MathHelper.PiOver4;
-        }
 
 
     }

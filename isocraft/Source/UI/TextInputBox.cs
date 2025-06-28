@@ -20,19 +20,26 @@ namespace isocraft
         private Color boxColor = Color.Gray;
         private Color textColor = Color.Black;
 
-        private Keys pastKey = Keys.F6;
-        private double repeat_cooltime = 0.5f;
+
+        private double repeat_cooltime = 0.4f;
         private double repeat_timer=0f;
 
         HashSet<Keys> key_set = new();
 
-        public TextInputBox(string currentInput,string hint, Vector2 init_pos, Vector2 dims, bool active,string font=null) 
+        public TextInputBox(string currentInput,string hint, Vector2 init_pos, Vector2 dims, bool active,string fonturl=null) 
             : base("UI\\solid", init_pos, dims, active, 0, 0, new Vector2(1,1), 1, 0, null)
         {
-            if (font != null)
+            if (font == null)
             {
-                this.font = Game1._Instance.Content.Load<SpriteFont>(UIEntity.Font16);
+                this.font = Game1._Instance.Content.Load<SpriteFont>(UIEntity.Font12);
             }
+
+            else
+            {
+                this.font = Game1._Instance.Content.Load<SpriteFont>(fonturl);
+
+            }
+
 
             if (currentInput != null)
             {
@@ -47,7 +54,7 @@ namespace isocraft
 
         public override void Update()
         {
-            Vector2 mousePos = Game1.MouseScreenPos;
+            Vector2 mousePos = Coordinate.ToOffset(Game1.MouseScreenPos);
 
             if (Hover(mousePos) && FlatKeyboard.Instance.IsKeyAvailable)
             {
@@ -102,7 +109,6 @@ namespace isocraft
         public override void Draw(Sprites sprite)
         {
 
-            base.Draw(sprite);
 
        
             if (currentInput != null && !currentInput.Equals(""))

@@ -11,6 +11,10 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\Character\Animation\MafiaEnemy\mafiaE_dead.png" />
+    <None Remove="Content\Character\Animation\MafiaEnemy\mafiaE_default.png" />
+    <None Remove="Content\Character\Animation\MafiaEnemy\mafiaE_shoot.png" />
+    <None Remove="Content\Character\Animation\MafiaEnemy\mafiaE_walk.png" />
     <None Remove="Content\Character\Animation\Male\male_dead.png" />
     <None Remove="Content\Character\Animation\Male\male_default.png" />
     <None Remove="Content\Character\Animation\Male\male_fire.png" />
@@ -20,10 +24,104 @@
     <None Remove="Content\Character\Animation\Zombie\zombie_dead.png" />
     <None Remove="Content\Character\Animation\Zombie\zombie_default.png" />
     <None Remove="Content\Character\Animation\Zombie\zombie_run.png" />
+    <None Remove="Content\Character\Editor\Emafia.png" />
+    <None Remove="Content\Character\Editor\zombie.png" />
     <None Remove="Content\Cursor\CursorArrow.xnb" />
     <None Remove="Content\Fonts\Arial16.xnb" />
     <None Remove="Content\Fonts\Roboto_Condensed-Bold.spritefont" />
     <None Remove="Content\Fonts\Rubik-Black.ttf" />
+    <None Remove="Content\Object\Building\Building - size 1 - height 1 - type A.png" />
+    <None Remove="Content\Object\Building\Building - size 1 - height 1 - type B.i.png" />
+    <None Remove="Content\Object\Building\Building - size 1 - height 1 - type B.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 1 - height 1 - type C.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 2 - type A.i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 2 - typeA.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 2 - typeA.iii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 2 - typeA.iv.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeB -  white-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeB -  white-ii.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeB -  yellow-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeB - blue-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeB - blue-ii.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeB - yellow-ii.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeC - blue-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeC - red-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeC - white-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeD - white-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeD - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeE - white-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 2 - height 2 - typeE - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeA.i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeA.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeA.iii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeA.iv.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeA.v.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeB concrete-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeB concrete-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 - typeB white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 typeB - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 typeC - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 typeC - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 typeD - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 3 typeD - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 5 - typeB concrete-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 5 - typeB concrete-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 5 - typeB white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2 - height 5 - typeB white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.i.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.iii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.iv.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 2 - TypeD-i.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 2 - TypeD-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.i.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.iii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.iv.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.v.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.vi.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.i.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.iii.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.iv.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 4 - TypeA.i.png" />
+    <None Remove="Content\Object\Building\Building - size 2x3 - height 4 - TypeA.ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 1 typeA - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 3 - typeA.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - type A - blue-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - type- white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeA - blue-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeA - red-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeA - red-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeA - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeB - concrete-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeB - red-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeB - red-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeB - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - concrete-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - concrete-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - red-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - red-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeC - white-iii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeD - red-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeD - red-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeD - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeD - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeE - white-i.png" />
+    <None Remove="Content\Object\Building\Building - size 3 - height 4 - typeE - white-ii.png" />
+    <None Remove="Content\Object\Building\Building - Size 3 - heihgt 2 - typeC - blue-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 3 - heihgt 2 - typeC - red-i.png" />
+    <None Remove="Content\Object\Building\Building - Size 3 - heihgt 2 - typeC - white-i.png" />
+    <None Remove="Content\Object\Building\Building size 5 - heihgt 5 - typeA - red-i.png" />
+    <None Remove="Content\Object\Building\Building size 5 - heihgt 5 - typeA - white-i.png" />
+    <None Remove="Content\Object\Building\Crane - Base Tower - A1.png" />
+    <None Remove="Content\Object\Building\Crane - Base Tower - A2.png" />
+    <None Remove="Content\Object\Building\Crane - Head - A1-i.png" />
+    <None Remove="Content\Object\Building\Crane - Head - A1-ii.png" />
+    <None Remove="Content\Object\Building\Crane - Head - A2-i.png" />
+    <None Remove="Content\Object\Building\Crane - Head - A2-ii.png" />
     <None Remove="Content\Tiles\Background - Archology South Dock Overlook.png" />
     <None Remove="Content\Tiles\Concrete Ground Square Tile.png" />
     <None Remove="Content\Tiles\Dusty Concrete -Light.png" />
@@ -105,12 +203,76 @@
     <None Remove="Content\Tiles\Urban Developed Ground Tile C.png" />
     <None Remove="Content\Tiles\Urban Developed Ground Tile D.png" />
     <None Remove="Content\Tiles\Urban Developed Ground Tile E.png" />
+    <None Remove="Content\UI\BarWindow.png" />
+    <None Remove="Content\UI\BtnExitNoOpacity.png" />
+    <None Remove="Content\UI\BtnExitOpacity.png" />
+    <None Remove="Content\UI\Btn_V01.png" />
+    <None Remove="Content\UI\Btn_V02.png" />
+    <None Remove="Content\UI\Btn_V03.png" />
+    <None Remove="Content\UI\Btn_V04.png" />
+    <None Remove="Content\UI\Btn_V05.png" />
+    <None Remove="Content\UI\Btn_V06.png" />
+    <None Remove="Content\UI\Btn_V07.png" />
+    <None Remove="Content\UI\Btn_V08.png" />
+    <None Remove="Content\UI\Btn_V09.png" />
+    <None Remove="Content\UI\Btn_V10.png" />
+    <None Remove="Content\UI\Btn_V11.png" />
+    <None Remove="Content\UI\Btn_V12.png" />
+    <None Remove="Content\UI\Btn_V13.png" />
+    <None Remove="Content\UI\Btn_V14.png" />
+    <None Remove="Content\UI\Btn_V15.png" />
+    <None Remove="Content\UI\Btn_V16.png" />
+    <None Remove="Content\UI\Btn_V17.png" />
+    <None Remove="Content\UI\Btn_V18.png" />
+    <None Remove="Content\UI\Btn_V19.png" />
+    <None Remove="Content\UI\Btn_V20.png" />
+    <None Remove="Content\UI\ButtonPanel.png" />
+    <None Remove="Content\UI\Cell125x121px.png" />
+    <None Remove="Content\UI\CellBig_01.png" />
+    <None Remove="Content\UI\CellBig_02.png" />
+    <None Remove="Content\UI\CellBig_03.png" />
+    <None Remove="Content\UI\Checked_01.png" />
+    <None Remove="Content\UI\Checked_02.png" />
+    <None Remove="Content\UI\Checked_03.png" />
+    <None Remove="Content\UI\Checked_04.png" />
+    <None Remove="Content\UI\Checked_05.png" />
+    <None Remove="Content\UI\Checked_06.png" />
+    <None Remove="Content\UI\Circle.png" />
+    <None Remove="Content\UI\Panel1_NoOpacity592x975px.png" />
+    <None Remove="Content\UI\Panel1_Opacity592x975px.png" />
+    <None Remove="Content\UI\Panel2_NoOpacity591x975px.png" />
+    <None Remove="Content\UI\Panel2_Opacity591x975px.png" />
+    <None Remove="Content\UI\PanelCells528x653px.png" />
+    <None Remove="Content\UI\PanelWindow.png" />
     <None Remove="Content\UI\SimpleBtn.xnb" />
     <None Remove="Content\UI\solid.xnb" />
+    <None Remove="Content\UI\Window01.png" />
+    <None Remove="Content\UI\Window02.png" />
+    <None Remove="Content\UI\Window03.png" />
+    <None Remove="Content\UI\Window03_Btn.png" />
+    <None Remove="Content\UI\Window03_Minimize.png" />
+    <None Remove="Content\UI\Window04.png" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Character\Animation\Male\male_hit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Character\Animation\MafiaEnemy\mafiaE_dead.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\MafiaEnemy\mafiaE_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\MafiaEnemy\mafiaE_shoot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Animation\MafiaEnemy\mafiaE_walk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Character\Animation\Male\male_dead.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -118,9 +280,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Character\Animation\Male\male_fire.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Character\Animation\Male\male_hit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Character\Animation\Male\male_walk.png">
@@ -138,6 +297,12 @@
     <Content Include="Content\Character\Animation\Zombie\zombie_run.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Character\Editor\Emafia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Editor\zombie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Cursor\CursorArrow.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -148,6 +313,270 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fonts\Rubik-Black.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 1 - height 1 - type A.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 1 - height 1 - type B.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 1 - height 1 - type B.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 1 - height 1 - type C.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 2 - type A.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 2 - typeA.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 2 - typeA.iii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 2 - typeA.iv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeB -  white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeB -  white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeB -  yellow-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeB - blue-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeB - blue-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeB - yellow-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeC - blue-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeC - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeC - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeD - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeD - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeE - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 2 - height 2 - typeE - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeA.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeA.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeA.iii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeA.iv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeA.v.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeB concrete-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeB concrete-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 - typeB white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 typeB - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 typeC - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 typeC - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 typeD - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 3 typeD - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 5 - typeB concrete-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 5 - typeB concrete-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 5 - typeB white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2 - height 5 - typeB white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.iii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 2 - TypeA.iv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 2 - TypeD-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 2 - TypeD-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.iii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.iv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.v.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeB.vi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.iii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 3 - TypeC.iv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 4 - TypeA.i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 2x3 - height 4 - TypeA.ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 1 typeA - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 3 - typeA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - type A - blue-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - type- white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeA - blue-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeA - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeA - red-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeA - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeB - concrete-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeB - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeB - red-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeB - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - concrete-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - concrete-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - red-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeC - white-iii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeD - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeD - red-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeD - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeD - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeE - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - size 3 - height 4 - typeE - white-ii.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 3 - heihgt 2 - typeC - blue-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 3 - heihgt 2 - typeC - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building - Size 3 - heihgt 2 - typeC - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building size 5 - heihgt 5 - typeA - red-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Building size 5 - heihgt 5 - typeA - white-i.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Crane - Base Tower - A1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Object\Building\Crane - Base Tower - A2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Tiles\Background - Archology South Dock Overlook.png">
@@ -393,10 +822,151 @@
     <Content Include="Content\Tiles\Urban Developed Ground Tile E.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\UI\BarWindow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BtnExitNoOpacity.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BtnExitOpacity.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Btn_V20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ButtonPanel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Cell125x121px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\CellBig_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\CellBig_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\CellBig_03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Checked_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Checked_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Checked_03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Checked_04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Checked_05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Checked_06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Circle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Panel1_NoOpacity592x975px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Panel1_Opacity592x975px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Panel2_NoOpacity591x975px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Panel2_Opacity591x975px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PanelCells528x653px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PanelWindow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\SimpleBtn.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\solid.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Window01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Window02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Window03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Window03_Btn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Window03_Minimize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Window04.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

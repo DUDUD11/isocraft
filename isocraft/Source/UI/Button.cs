@@ -27,6 +27,10 @@ namespace isocraft
         public bool reference;
         public Color ButtonTextColor { get; set; } = Color.Black;
 
+        public Texture2D SecondDraw;
+
+
+
         public Button(string path,Vector2 pos,Vector2 dims,bool active,int dir,int dirNum, Vector2 Frame,int animation_num,int millisecond,string txt=null,bool toggle=false)
             : base(path, pos, dims, active, dir, dirNum, Frame, animation_num, millisecond)
         {
@@ -39,6 +43,24 @@ namespace isocraft
                 set_BtnText(txt, Color.Black, UIEntity.Font12);
             }
         }
+
+        public Button(string path,string path2, Vector2 pos, Vector2 dims, bool active, int dir, int dirNum, Vector2 Frame, int animation_num, int millisecond, string txt = null, bool toggle = false)
+     : base(path, pos, dims, active, dir, dirNum, Frame, animation_num, millisecond)
+        {
+            toggle = false;
+            reference = false;
+            SecondDraw = Game1._Instance.Content.Load<Texture2D>(path2);
+
+            if (txt != null)
+            {
+                set_BtnText(txt, Color.Black, UIEntity.Font12);
+            }
+        }
+
+
+
+
+
         public void set_BtnText(string txt,Color color,string text_font)
         {
             button_text = txt;
@@ -67,7 +89,9 @@ namespace isocraft
             base.Update();
             if (!active) { return; }
 
-            Vector2 CursorPos = Game1.MouseScreenPos;
+            Vector2 CursorPos = Coordinate.ToOffset(Game1.MouseScreenPos);
+
+
             bool LeftClick = FlatMouse.Instance.IsLeftMouseButtonPressed();
 
             if (Hover(CursorPos))
@@ -140,6 +164,11 @@ namespace isocraft
                 tmpColor = hoverColor;
             }
 
+            if (SecondDraw != null)
+            {
+                sprite.Draw(SecondDraw, new Rectangle((int)(pos.X), (int)(pos.Y), (int)dims.X, (int)dims.Y), tmpColor, 0f,
+              new Vector2(SecondDraw.Bounds.Width / 2, SecondDraw.Bounds.Height / 2));
+            }
 
             sprite.Draw(model, new Rectangle((int)(pos.X), (int)(pos.Y), (int)dims.X, (int)dims.Y), tmpColor, 0f,
             new Vector2(model.Bounds.Width / 2, model.Bounds.Height / 2));

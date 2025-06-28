@@ -13,6 +13,14 @@ namespace isocraft;
 
 public class Game1 : Game
 {
+    public struct Updating_st
+    {
+        public int idx;
+        public SpriteEntity SpriteEntity;
+    
+    }
+
+
     public static Game1 _Instance;
 
     private Screen screen;
@@ -28,13 +36,14 @@ public class Game1 : Game
     public static int screen_width;
     public static int screen_height;
     public static double GameTime;
-
+    private bool test = false;
 
     public static Point offset = Point.Zero;
     public static Point shape_offset;
     public static bool Player_turn = true;
 
     public static SpriteSelected selected;
+
 
     public static Point Display_size;
 
@@ -48,8 +57,11 @@ public class Game1 : Game
     public male Male;
     public Villain villain;
 
-    public static Game_Status _game_Status = Game_Status.Game_Menu;
+    public static Game_Status _game_Status = Game_Status.Game_Playing;
     public static Playing_Status _playing_Status = Playing_Status.Idle;
+    public static Updating_st UpdatingSprite;
+
+    MapEditor mapEditor;
     
 
     public enum Game_Status
@@ -86,6 +98,8 @@ public class Game1 : Game
 
     }
 
+
+
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
@@ -108,11 +122,18 @@ public class Game1 : Game
 
         cursor = Content.Load<Texture2D>("Cursor\\CursorArrow");
 
+        GameEnums.Init();
 
-        Coordinate.Instance.Init(100, 100);
+
+        MapDeployment.Instance.LoadAndUpdate("MapTest");
+
+       // Coordinate.Instance.Init(100, 100);
 
         WorkQueue = new Queue<SpriteEntity>();
 
+        mapEditor = new MapEditor(30, 30);
+
+        UpdatingSprite.idx = 0;
 
         base.Initialize();
     }
@@ -124,25 +145,25 @@ public class Game1 : Game
         // TODO: use this.Content to load your game content here
 
 
-        for (int i = 3; i <=3; i++)
-        {
-            for (int j = 3; j <= 3; j++)
-            {
-                Male = new male("Character\\Animation\\Male\\male_default", new Vector2(i, j),1);
+        //for (int i = 0; i <=3; i++)
+        //{
+        //    for (int j = 0; j <= 3; j++)
+        //    {
+        //        Male = new male("Character\\Animation\\Male\\male_default", new Vector2(i, j),1);
               
-                EntityManager.AddHero(Male);
-            }
-        }
+        //        EntityManager.AddHero(Male);
+        //    }
+        //}
 
-        for (int i = 8; i <= 8; i++)
-        {
-            for (int j = 8; j <= 8; j++)
-            {
-                villain = new Zombie("Character\\Animation\\Zombie\\zombie_default", new Vector2(i, j), 1);
+        //for (int i = 8; i <= 8; i++)
+        //{
+        //    for (int j = 0; j <=0; j++)
+        //    {
+        //        villain = new Zombie("Character\\Animation\\Zombie\\zombie_default", new Vector2(i, j), 1);
 
-                EntityManager.AddEnemys(villain);
-            }
-        }
+        //        EntityManager.AddEnemys(villain);
+        //    }
+        //}
 
 
 
@@ -178,102 +199,177 @@ public class Game1 : Game
 
         Mouse_KeyboardUpdate();
 
-
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
-
-        // click 처리
+        if (_game_Status == Game_Status.Game_MapEditor)
         {
-            if (FlatMouse.Instance.IsLeftMouseButtonPressed())
+            mapEditor.Update();
+        
+        }
+
+        if (_game_Status == Game_Status.Game_Playing)
+        {
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // click 처리
             {
-
-                Point point = Coordinate.ToTile((int)MouseScreenPos.X, (int)MouseScreenPos.Y);
-
-   
-
-                if (Coordinate.Instance.Vaild(point))
+                if (FlatMouse.Instance.IsLeftMouseButtonPressed())
                 {
-                    Heros hero = EntityManager.FindHero(point);
 
-                    if (hero != null)
+                    Point point = Coordinate.ToTile((int)MouseScreenPos.X, (int)MouseScreenPos.Y);
+
+
+
+                    if (Coordinate.Instance.Vaild(point))
                     {
-                      
+                        Heros hero = EntityManager.FindHero(point);
 
-                        hero.Selected();
-                        Selected(hero);
+                        if (hero != null)
+                        {
 
 
-                      //  _playing_Status = Playing_Status.Idle;
+                            hero.Selected();
+                            Selected(hero);
+
+
+                            //  _playing_Status = Playing_Status.Idle;
+                        }
+
+                    }
+                }
+
+                if (FlatMouse.Instance.IsRightMouseButtonPressed())
+                {
+                    Point point = Coordinate.ToTile((int)MouseScreenPos.X, (int)MouseScreenPos.Y);
+
+                    if (selected.sprite is Heros hero)
+                    {
+                        hero.RightClick(point);
+                        _playing_Status = Playing_Status.Updating;
+                        UpdatingSprite.SpriteEntity = hero;
+                        
                     }
 
                 }
+
+
+
+
+
+
+
+
             }
 
-            if (FlatMouse.Instance.IsRightMouseButtonPressed())
-            {
-                Point point = Coordinate.ToTile((int)MouseScreenPos.X, (int)MouseScreenPos.Y);
 
-                if (selected.sprite is Heros hero)
+
+            {
+                // UI UPDATE
+
+
+            }
+
+            {
+                // QUEUE 확인
+
+            }
+
+            {
+                //  Queue 없으면
+                // Left Clicked  RightClicked확인
+            }
+
+            if (FlatKeyboard.Instance.IsKeyDown(Keys.X))
+            {
+                Toggle_Turn_Hero();
+            }
+
+            if (FlatKeyboard.Instance.IsKeyDown(Keys.Z))
+            {
+                Toggle_Turn_Enemy();
+            }
+
+            if (FlatKeyboard.Instance.IsKeyDown(Keys.E))
+            {
+                //Toggle_Turn_Enemy();
+            }
+
+            if (FlatKeyboard.Instance.IsKeyDown(Keys.M))
+            {
+          
+                _game_Status = Game_Status.Game_MapEditor;
+    
+            }
+
+           
+
+            if (Player_turn)
+            {
+                if (_playing_Status == Playing_Status.Updating)
                 {
-                    hero.RightClick(point);
+                    if (!UpdatingSprite.SpriteEntity.updateRequired)
+                    {
+                        _playing_Status = Playing_Status.Idle;
+                        UpdatingSprite.SpriteEntity = null;
+                        UpdatingSprite.idx += 1;
+
+                    }
+
+                    else
+                    {
+                        UpdatingSprite.SpriteEntity.Update();
+                    }
                 }
 
+                else
+                {
+
+                    for (int i = UpdatingSprite.idx; i < EntityManager.Heroes.Count; i++)
+                    {
+                        EntityManager.Heroes[i].Update();
+                        _playing_Status = Playing_Status.Updating;
+                        UpdatingSprite.SpriteEntity = EntityManager.Heroes[i];
+                        break;
+                    }
+                }
             }
 
-
-
-
-
-
-        }
-
-
-
-        { 
-            // UI UPDATE
-        
-        
-        }
-
-        { 
-        // QUEUE 확인
-        
-        }
-
-        {
-            //  Queue 없으면
-            // Left Clicked  RightClicked확인
-        }
-
-        if (FlatKeyboard.Instance.IsKeyDown(Keys.X))
-        {
-            Toggle_Turn_Hero();
-        }
-
-        if (FlatKeyboard.Instance.IsKeyDown(Keys.Z))
-        {
-            Toggle_Turn_Enemy();
-        }
-
-        if (FlatKeyboard.Instance.IsKeyDown(Keys.E))
-        {
-            //Toggle_Turn_Enemy();
-        }
-
-
-        if (Player_turn)
-        {
-            for (int i = 0; i < EntityManager.Heroes.Count; i++)
+            else
             {
-                EntityManager.Heroes[i].Update();
-            }
-        }
 
-        else
-        {
-            for (int i = 0; i < EntityManager.Enemys.Count; i++)
-            {
-                EntityManager.Enemys[i].Update();
+                if (_playing_Status == Playing_Status.Updating)
+                {
+                    if (!UpdatingSprite.SpriteEntity.updateRequired)
+                    {
+         
+                        _playing_Status = Playing_Status.Idle;
+                        UpdatingSprite.SpriteEntity = null;
+                        UpdatingSprite.idx += 1;
+
+              
+
+                    }
+
+                    else
+                    {
+                        UpdatingSprite.SpriteEntity.Update();
+                    }
+
+                }
+
+                else
+                {
+                    for (int i = UpdatingSprite.idx; i < EntityManager.Enemys.Count; i++)
+                    {
+                        EntityManager.Enemys[i].Update();
+                        _playing_Status = Playing_Status.Updating;
+                        UpdatingSprite.SpriteEntity = EntityManager.Enemys[i];
+                        break;
+               
+
+                      
+                    }
+                }
             }
 
         }
@@ -305,76 +401,125 @@ public class Game1 : Game
 
         #region cursor
 
+
+
+        #endregion
+
+
+        if (_game_Status == Game_Status.Game_Playing)
+        {
+            sprites.Begin(camera);
+
+            for (int i = 0; i < TileMap.FirstFloorTiles.Count; i++)
+            {
+                TileMap.FirstFloorTiles[i].Draw(sprites);
+            }
+
+            //AntiAliasingShader(cursor, new Vector2(28, 28));
+
+
+            // sprites.Draw(cursor, new Rectangle((int)(100 - offset.X), (int)(100 + offset.Y), 28, 28), Color.White, new Vector2(0, cursor.Bounds.Height));
+
+            for (int i = 0; i < EntityManager.AllEntities.Count; i++)
+            {
+                EntityManager.AllEntities[i].Draw(sprites);
+            }
+
+        
+
+
+
+
+            sprites.End();
+
+            shapes.Begin(camera);
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+
+                    Point point = Coordinate.Instance.isoMap[i, j];
+                    point = Draw_Offset(point);
+
+
+                    shapes.DrawBox(point.ToVector2(), TileMap.Tile_Size * FlatMath.InvSqrt2, TileMap.Tile_Size * FlatMath.InvSqrt2, MathHelper.PiOver4, Color.White);
+
+                }
+            }
+
+
+           
+
+            if (selected.sprite is Heros hero && BFS.isReady == hero && hero.status == Heros.Hero_Status.Selected)
+            {
+               
+              
+                
+                    for (int i = -hero.range * hero.cur_act; i <= hero.range * hero.cur_act; i++)
+                    {
+                        for (int j = -hero.range * hero.cur_act; j <= hero.range * hero.cur_act; j++)
+                        {
+                       
+
+                            if (!Coordinate.Instance.boundary_check(new Point(i + hero.range * hero.cur_act, j + hero.range * hero.cur_act)))
+                            {
+                                continue;
+                            }
+                           
+
+                            if (BFS.Instance.bfsMap[i + hero.range * hero.cur_act, j + hero.range * hero.cur_act] <= hero.range * hero.cur_act)
+                            {
+
+                                Point point = Coordinate.Instance.isoMap[(int)hero.pos.Y + i, (int)hero.pos.X + j];
+                                point = Draw_Offset(point);
+
+                                shapes.DrawBox(point.ToVector2(), TileMap.Tile_Size * FlatMath.InvSqrt2, TileMap.Tile_Size * FlatMath.InvSqrt2, MathHelper.PiOver4, Color.Blue);
+
+                            }
+
+                        }
+                    }
+                
+              
+
+            }
+
+
+
+            shapes.End();
+
+
+        }
+
+        else if (_game_Status == Game_Status.Game_MapEditor)
+        {
+            sprites.Begin(camera);
+            mapEditor.Draw(sprites);
+            sprites.End();
+
+            shapes.Begin(camera);
+            for (int i = 0; i < 50; i++)
+            {
+                for (int j = 0; j < 50; j++)
+                {
+
+                    Point point = Coordinate.Instance.isoMap[i, j];
+                    point = Draw_Offset(point);
+                    shapes.DrawBox(point.ToVector2(), TileMap.Tile_Size * FlatMath.InvSqrt2, TileMap.Tile_Size * FlatMath.InvSqrt2, MathHelper.PiOver4, Color.White);
+                }
+            }
+
+            shapes.End();
+        }
+
+
         sprites.Begin();
         //sprites.Draw(cursor, new Rectangle((int)(100 - offset.X), (int)(100 + offset.Y), 28, 28), Color.White, new Vector2(0, cursor.Bounds.Height));
         sprites.Draw(cursor, new Rectangle((int)(MouseScreenPos.X), (int)(MouseScreenPos.Y), 28, 28), Color.White, new Vector2(0, cursor.Bounds.Height));
         sprites.End();
 
-        #endregion
-
-        sprites.Begin(camera);
-
-        //AntiAliasingShader(cursor, new Vector2(28, 28));
-
-
-       // sprites.Draw(cursor, new Rectangle((int)(100 - offset.X), (int)(100 + offset.Y), 28, 28), Color.White, new Vector2(0, cursor.Bounds.Height));
-
-        for (int i = 0; i < EntityManager.AllEntities.Count; i++)
-        {
-            EntityManager.AllEntities[i].Draw(sprites);
-        }
-
-        sprites.End();
-
-        shapes.Begin(camera);
-
-       
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-          
-                Point point = Coordinate.Instance.Map[i, j];
-                point = Draw_Offset(point);
-
-
-                shapes.DrawBox(point.ToVector2() , TileMap.Tile_Size * FlatMath.InvSqrt2, TileMap.Tile_Size * FlatMath.InvSqrt2, MathHelper.PiOver4, Color.White);
-                
-            }
-        }
-
-        if (_playing_Status == Playing_Status.Selected && selected.sprite is Heros hero)
-        {
-            for (int i = -hero.range; i <= hero.range; i++)
-            {
-                for (int j = -hero.range; j <= hero.range; j++)
-                {
-                    if (i + hero.range < 0 || j + hero.range < 0) continue;
-
-                    if (!Coordinate.Instance.boundary_check(new Point(i + hero.range, j + hero.range)))
-                    {
-                        continue;
-                    }
-
-
-                    if (BFS.Instance.bfsMap[i + hero.range, j + hero.range] <= hero.range)
-                    {
-                        Point point = Coordinate.Instance.Map[selected.init_pos.Y+i, selected.init_pos.X+j];
-                        point = Draw_Offset(point);
-
-                        shapes.DrawBox(point.ToVector2(), TileMap.Tile_Size * FlatMath.InvSqrt2, TileMap.Tile_Size * FlatMath.InvSqrt2, MathHelper.PiOver4, Color.Blue);
-
-                    }
-                
-                }
-            }
-        }
-
-
-
-        shapes.End();
-        
-        
         screen.Unset();
         screen.Present(sprites);
 
@@ -443,13 +588,13 @@ public class Game1 : Game
         //{
         //    //맵을 바꾸든가 죽게 처리
         //    {
-        //        string next_map = mapDeployment.NextMap(dir);
+        //        string pathway.next_map = mapDeployment.pathway.nextMap(dir);
 
-        //        if (next_map != null)
+        //        if (pathway.next_map != null)
         //        {
 
 
-        //            mapDeployment.Load_Map(next_map, hero);
+        //            mapDeployment.Load_Map(pathway.next_map, hero);
         //            this.Camera_Reset();
 
         //        }
@@ -487,6 +632,11 @@ public class Game1 : Game
 
     private void Toggle_Turn_Hero()
     {
+        selected = new SpriteSelected();
+        UpdatingSprite.SpriteEntity = null;
+        UpdatingSprite.idx = 0;
+        _playing_Status = Playing_Status.Idle;
+
         if (Player_turn) return;
 
         Player_turn = !Player_turn;
@@ -503,8 +653,16 @@ public class Game1 : Game
     
     }
 
+    
+
+
     private void Toggle_Turn_Enemy()
     {
+        selected = new SpriteSelected();
+        UpdatingSprite.SpriteEntity = null;
+        UpdatingSprite.idx = 0;
+        _playing_Status = Playing_Status.Idle;
+
         if (!Player_turn) return;
 
         Player_turn = !Player_turn;

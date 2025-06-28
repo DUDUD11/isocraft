@@ -36,8 +36,8 @@ namespace isocraft
         public int currentAnimation;
 
 
-        public SpriteAnimated(string path, Vector2 init_pos, Vector2 dims, int dir,int dirNum, Vector2 frames, int animationNum, int totalframe, int millitimePerFrame, string name)
-        : base(path, init_pos, dims,dir)
+        public SpriteAnimated(string path, Vector2 init_pos, Vector2 dims, int dir,int angle,int dirNum, Vector2 frames, int animationNum, int totalframe, int millitimePerFrame, string name)
+        : base(path, init_pos, dims,angle)
         {
             this.AnimationNum = animationNum;
             this.Animation_Set = new List<ani_set>(animationNum);
@@ -102,6 +102,11 @@ namespace isocraft
             FrameAnimationList[currentAnimation].Change_Dir(dir);
         }
 
+        public int GetDirCurrentAnimaition()
+        {
+            return FrameAnimationList[currentAnimation].Dir;
+         
+        }
 
 
         public void SetAnimationFlag(bool flag)
@@ -170,7 +175,7 @@ namespace isocraft
             currentAnimation = tempAnimation;
         }
 
-        public override void Draw(Sprites sprite, int dir)
+        public override void Draw(Sprites sprite)
         {
             //hero 등에서는 이미 바꾸기때문
             //     Game1.AntiAliasingShader(model, dims, Animation_Set[currentAnimation].FrameSize);

@@ -105,7 +105,7 @@ namespace isocraft
         #endregion
 
 
-        //public void MoveForceNextFrame()
+        //public void MoveForcepathway.nextFrame()
         //{
 
         //    currentFrame = (CurrentFrame + 1+ dirNum) % totalframes;
@@ -182,7 +182,7 @@ namespace isocraft
 
                     else
                     {
-                        Console.WriteLine(sheetFrame + " " + currentFrame);
+                      //  Console.WriteLine(sheetFrame + " " + currentFrame);
 
 
                         sheetFrame.Y = sheetFrame.Y + 1;

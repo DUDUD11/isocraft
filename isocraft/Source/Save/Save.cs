@@ -88,8 +88,6 @@ namespace isocraft
                 IncludeFields = true
             };
 
-
-
             string json = File.ReadAllText(filepath);
             Map map = JsonSerializer.Deserialize<Map>(json, jsonOptions);
 

@@ -56,9 +56,6 @@ namespace isocraft
             Change_MapSize();
         }
 
-
-
-
         private void Change_MapSize()
         {
             SpriteList = new();

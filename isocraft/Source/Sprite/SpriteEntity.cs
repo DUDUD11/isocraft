@@ -26,19 +26,34 @@ namespace isocraft
         //         4
         public Vector2 pos, dims;
         public bool updateRequired = false;
-        public int dir;
+        public float angle;
         public Texture2D model;
+        public string url;
         public bool Destroy = false;
 
 
-        public SpriteEntity(string path, Vector2 init_pos, Vector2 dims, int dir)
+        public SpriteEntity(string path, Vector2 init_pos, Vector2 dims, int angle)
         {
- 
+            url = path;
             model = Game1._Instance.Content.Load<Texture2D>(path);
             this.pos = init_pos;
             this.dims = dims;
-            this.dir = dir;
+            this.angle = angle * MathHelper.PiOver4;
         }
+
+        public void angle_add(int _angle)
+        { 
+            this.angle += _angle * MathHelper.PiOver4;
+
+        }
+
+        public void dims_add(int dims)
+        {
+            this.dims += new Vector2(dims, dims);
+
+        }
+
+
 
         public virtual void Update()
         {
@@ -61,6 +76,7 @@ namespace isocraft
 
         //}
 
+        
         public void UpdateModel(string path)
         {
             model = Game1._Instance.Content.Load<Texture2D>(path);
@@ -83,10 +99,10 @@ namespace isocraft
             throw new ArgumentNullException("draw method must override ");
         }
 
-        public virtual void Draw(Sprites sprite, int dir)
-        {
-            throw new ArgumentNullException("draw method must override ");
-        }
+        //public virtual void Draw(Sprites sprite, int dir)
+        //{
+        //    throw new ArgumentNullException("draw method must override ");
+        //}
 
         public virtual void Selected()
         {

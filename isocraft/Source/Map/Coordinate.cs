@@ -17,7 +17,7 @@ namespace isocraft
     {
         private static Coordinate _instance;
 
-        public Point[,] Map;
+        public Point[,] isoMap;
         // 타일이없으면 못가게
         public bool[,] TileMapping;
         public Point[,] Info;
@@ -30,17 +30,56 @@ namespace isocraft
 
         public bool Place_Unit(Point point, Point type)
         {
-            if (Info[point.Y, point.X].X != (int)GameEnums.Type.None)
+            return Place_Unit(point, type, new Point(1, 1));
+        }
+
+        // 크기좀 다른 hero나, enemy등은 사이즈 1로 고정시키고 true반환
+        private bool Place_Unit(Point point, Point type,Point dims)
+        {
+
+         
+
+
+            if (type.X == (int)GameEnums.Type.Hero || type.X == (int)GameEnums.Type.Enemy)
             {
-                return false;
+                if (Info[point.Y , point.X].X != (int)GameEnums.Type.None)
+                {
+                    return false;
+                }
+
+                Info[point.Y , point.X] = type;
+                return true;
             }
 
-            Info[point.Y, point.X] = type;
+            if (dims.X > 3)
+            {
+                throw new Exception("");
+            }
+
+
+            for (int i = 0; i < dims.Y; i++)
+            {
+                for (int j = 0; j < dims.X; j++)
+                {
+
+                    if (Info[point.Y+i, point.X+j].X != (int)GameEnums.Type.None)
+                    {
+                        return false;
+                    }
+
+                    Info[point.Y+i, point.X+j] = type;
+
+
+                }
+
+            }
 
             return true;
         }
 
-        public void Move_Unit(Point Start, Point End, Point type)
+
+        
+        public void Move_Unit(Point Start, Point End, Point type, Point dims)
         {
 
             if (Info[Start.Y, Start.X].X == (int)GameEnums.Type.None)
@@ -49,10 +88,38 @@ namespace isocraft
             }
 
 
-            Info[Start.Y, Start.X].X = (int)GameEnums.Type.None;
-            Info[End.Y, End.X] = type;
+
+
+            for (int i = 0; i < dims.Y; i++)
+            {
+                for (int j = 0; j < dims.X; j++)
+                {
+                    Info[Start.Y + i, Start.X + j].X = (int)GameEnums.Type.None;
+                    Info[End.Y + i, End.X + j] = type;
+                }
+            }
+
 
         }
+
+
+
+
+
+
+
+
+        public void Move_Unit(Point Start, Point End, Point type)
+        {
+           Move_Unit(Start, End, type, new Point(1, 1));
+
+        
+
+        }
+
+
+
+
 
         public bool boundary_check(Point point)
         {
@@ -81,19 +148,51 @@ namespace isocraft
 
         public void Init(int width, int height)
         {
-            Map = new Point[height, width];
+            isoMap = new Point[height, width];
             Info = new Point[height, width];
-
+            TileMapping = new bool[height, width];
             this.width = width;
             this.height = height;
-
+   
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    Map[i, j] = ToIsometric(j,i); 
+                    isoMap[i, j] = ToIsometric(j,i); 
                 }
             }
+
+            // 일단 타일의 dims는 1로고정
+
+            for (int i = 0; i < TileMap.FirstFloorTiles.Count; i++)
+            {
+                Tile tile = TileMap.FirstFloorTiles[i];
+                TileMapping[(int)tile.pos.Y,(int)tile.pos.X] = true;
+             
+
+            }
+
+            ////// 일단 타일의 dims는 1로고정
+            //for (int i = 0; i < TileMap.SecondFloorTiles.Count; i++)
+            //{
+            //    Tile tile = TileMap.SecondFloorTiles[i];
+            //    TileMapping[(int)tile.pos.Y, (int)tile.pos.X] = true;
+
+            //}
+
+            for (int i = 0; i < EntityManager.AllEntities.Count; i++)
+            {
+                SpriteEntity sprite = EntityManager.AllEntities[i];
+
+                Point pos = sprite.pos.ToPoint();
+
+                Place_Unit(pos, GameEnums.Type_ret(sprite), sprite.dims.ToPoint());
+
+            //    Info[pos.Y, pos.X] = GameEnums.Type_ret(sprite);
+            }
+
+
+
         }
 
 
@@ -148,6 +247,25 @@ namespace isocraft
 
             return new Point(tileX, tileY);
         }
+
+        //오프셋이 적용된 위치
+        public static Vector2 ToOffset(Vector2 screen)
+        {
+            int zoom = (Game1.Display_size.X / (2 * screen_offset.X));
+
+            screen /= zoom;
+          
+
+            screen.X += Game1.offset.X;
+            screen.Y+= Game1.offset.Y;
+
+            //int tileX = (screenX / (TileMap.Tile_Size / 2) + screenY / (TileMap.Tile_Size / 2)) / 2;
+            //int tileY = (screenY / (TileMap.Tile_Size / 2) - screenX / (TileMap.Tile_Size / 2)) / 2;
+
+            return screen;
+        }
+
+
 
         public bool Vaild(Point point)
         {
