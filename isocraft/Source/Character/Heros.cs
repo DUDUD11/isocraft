@@ -1,4 +1,5 @@
 ﻿using Flat.Graphics;
+
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace isocraft
             Selected,
             Moving,
             Shooting,
+            DoubleShooting,
             Attacked,
             Dead,
         }
@@ -50,11 +52,18 @@ namespace isocraft
         protected Vector2 _ShootingPos;
         protected Villain _villain;
         protected int _hit_percent;
+        protected bool ShootingFlag = false;
         protected Shooting_Sequence shooting_Sequence;
         protected bool PathReach = false;
 
         protected double Dead_timer = 0f;
         protected double Shooting_timer = 0f;
+
+        public Circle circle;
+        public ActivityBar activityBar;
+        public StatusUI statusUI;
+        public ConditionBar conditionBar;
+
 
         public Heros(string path, Vector2 init_pos,Vector2 dims, int dir,int dirNum, int range, Vector2 frames, int animation_num,int totalAnimationNum,int millisecondFrame, string name = null) :
     base(path, init_pos, dims, dir,0, dirNum, frames, animation_num,
@@ -81,7 +90,10 @@ namespace isocraft
             base.Draw(sprite);
         }
 
-     
+        public virtual void OrderReject()
+        { 
+        
+        }
 
         public virtual void RightClick(Point point)
         { 
@@ -92,10 +104,21 @@ namespace isocraft
         protected virtual void Attack()
         { 
         }
+
+        protected virtual void DoubleAttack()
+        {
+        }
         protected virtual void Move()
         { 
         
         }
+
+        protected virtual void Dying()
+        { 
+        
+        }
+
+
 
 
         public virtual void Reset_act()

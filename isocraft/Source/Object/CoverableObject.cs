@@ -53,6 +53,9 @@ namespace isocraft
 
         public float Covering_Vec(Vector2 val)
         {
+
+        
+
             bool left = false;
             bool right = false;
             bool up = false;
@@ -62,10 +65,18 @@ namespace isocraft
             int coverY = (int)val.Y - (int)this.pos.Y;
 
             if (coverX == 0) left = true;
-            if (coverX == (int)dims.X) right = true;
+            if (coverX == (int)dims.X)
+            {
+                right = true;
+                coverX -= 1;
+            }
 
             if (coverY == 0) down = true;
-            if (coverY == (int)dims.Y) up = true;
+            if (coverY == (int)dims.Y)
+            {
+                up = true;
+                coverY -= 1;
+            }
 
             int coverage = Cover_Vector[coverY,coverX];
 

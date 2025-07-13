@@ -122,8 +122,7 @@ namespace isocraft
           
 
         };
-        private Save save;
-
+       
         public void Init(int width, int height)
         {
             CurrentMap = new Map();
@@ -139,7 +138,7 @@ namespace isocraft
 
             CurrentMap = new Map();
             CurrentMap.Init(width, height);
-            save = new Save();
+       
             AdditionalInput = new TextInputBox[RbInput_Cnt];
             Buttons = new Button[Enum.GetValues(typeof(UIButtons)).Length];
             buttons_action = new Action[] { DeleteButtonClicked, SaveButtonClicked, LoadButtonClicked, BackButtonClicked, MapSizeChangeButtonClicked, TileSetButtonClicked, BuildingButtonClicked, VillainButtonClicked,  EraseModeClicked  };
@@ -247,7 +246,7 @@ namespace isocraft
           
             else
             {
-                CurrentMap = save.LoadMapData(MapNameInput.GetInput());
+                CurrentMap = Save.Instance.LoadMapData(MapNameInput.GetInput());
 
                 //            public List<List<Tuple<int, int>>> SpriteList;
                 //public List<List<Object>> SpriteInfo;
@@ -507,7 +506,7 @@ namespace isocraft
 
 
 
-            save.SaveMapData(CurrentMap, MapNameInput.GetInput());
+            Save.Instance.SaveMapData(CurrentMap, MapNameInput.GetInput());
 
 
 
@@ -789,18 +788,23 @@ namespace isocraft
 
             for (int i = 0; i < MapVillain.Count; i++)
             {
+
                 MapVillain[i].Draw(sprite);
 
             }
 
             for (int i = 0; i < drawUIList.Count; i++)
             {
+                drawUIList[i].offsetfixed = true;
+                drawUIList[i].cameraused = true;
                 drawUIList[i].Draw(sprite);
             }
 
 
             for (int i = 0; i < Enum.GetValues(typeof(UIButtons)).Length; i++)
             {
+                Buttons[i].offsetfixed = true;
+                Buttons[i].cameraused = true;
                 Buttons[i].Draw(sprite);
             }
 

@@ -91,19 +91,32 @@ namespace isocraft
             AddAnimation(new Vector2(8, 2), "Character\\Animation\\MafiaEnemy\\mafiaE_dead", 16, millisecondFrame, "Dead", 3, false);
         }
 
-            public override void Get_Hit(int damage)
+        protected override void Dying()
+        {
+    
+            Game1.Attacked_Sprite = this;
+            cur_health = 0;
+
+            status = Solidier_Status.Dead;
+            Dead_timer = WorldTimer.Instance.totalTime();
+            ChangeCurrentAnimation(3);
+        
+        }
+
+        public override void Get_Hit(int damage)
             {
-                if (Destroy) return;
+
+            updateRequired = true;
+
+            if (Destroy) return;
 
                 cur_health -= damage;
 
-                if (damage < 0 || health <= 0f)
+                if (cur_health < 0 || health <= 0f)
                 {
 
-                    health = 0;
-
-                    status = Solidier_Status.Dead;
-                    Dead_timer = WorldTimer.Instance.totalTime();
+                    Dying();
+                
                 }
 
                 else
@@ -115,8 +128,10 @@ namespace isocraft
 
             public override void Update()
             {
+       
+           
 
-                if (Destroy || !updateRequired)
+            if (Destroy || !updateRequired)
                 {
                     return;
                 }
@@ -125,10 +140,11 @@ namespace isocraft
                 {
                     case Solidier_Status.Dead:
 
-                        if (Dead_timer + Solidier_Dead_EffectTime > WorldTimer.Instance.totalTime())
+                        if (Dead_timer + Solidier_Dead_EffectTime < WorldTimer.Instance.totalTime())
                         {
                             Destroy_Sprite();
-                            //Changeanimation dead
+                            Game1.Attacked_Sprite = null;
+                        //Changeanimation dead
                         }
 
                         break;
@@ -290,10 +306,12 @@ namespace isocraft
 
         public override void Attack()
         {
-           
 
+        
             switch (shooting_Sequence)
             {
+                
+
                 case Shooting_Sequence.Not_Move:
 
                     pathway.start = pos.ToPoint();
@@ -426,12 +444,13 @@ namespace isocraft
             if (BFS.Instance.Enemy_Can_Detect_90deg_ImPenetration_Range(pos.ToPoint(), BFS.RevDirection(GetDirCurrentAnimaition()), this, Solidier_sight, out Heros _))
             {
 
+           
+
 
                 Path = BFS.Instance.EnemyRangeMove(pos.ToPoint(), Solidier_range, cur_act, Solidier_atkrange, default_accuracy, Villain.Shooting_accuracy,
                     out metadata.walking_cost, out metadata.hitrate, out metadata.walking_end_point, out metadata.target,
                     out metadata.ShootingPos, out strategy);
 
-            
 
                 if (strategy == Strategy.Hold)
                 {
@@ -476,14 +495,16 @@ namespace isocraft
             {
                 cur_act = 0;
 
-            
+               
             }
             }
 
             public override void Reset_act()
             {
-                this.cur_act = act;
-            }
+            if (status == Solidier_Status.Dead) return;
+            this.cur_act = act;
+            this.status = Solidier_Status.Idle;
+        }
 
 
         

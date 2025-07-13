@@ -26,7 +26,33 @@
     <None Remove="Content\Character\Animation\Zombie\zombie_run.png" />
     <None Remove="Content\Character\Editor\Emafia.png" />
     <None Remove="Content\Character\Editor\zombie.png" />
+    <None Remove="Content\Character\Portrait\axeman1.png" />
+    <None Remove="Content\Character\Portrait\axeman2.png" />
+    <None Remove="Content\Character\Portrait\female1.png" />
+    <None Remove="Content\Character\Portrait\female2.png" />
+    <None Remove="Content\Character\Portrait\Mafia1.png" />
+    <None Remove="Content\Character\Portrait\Mafia2.png" />
+    <None Remove="Content\Character\Portrait\male1.png" />
+    <None Remove="Content\Character\Portrait\male2.png" />
+    <None Remove="Content\Character\Portrait\Medic1.png" />
+    <None Remove="Content\Character\Portrait\Medic2.png" />
+    <None Remove="Content\Character\Portrait\ninja1.png" />
+    <None Remove="Content\Character\Portrait\ninja2.png" />
+    <None Remove="Content\Character\Portrait\snipers1.png" />
+    <None Remove="Content\Character\Portrait\snipers2.png" />
+    <None Remove="Content\Character\Portrait\Survivor1.png" />
+    <None Remove="Content\Character\Portrait\Survivor2.png" />
+    <None Remove="Content\Character\Weapons\Glock - P80 [64x48].png" />
+    <None Remove="Content\Character\Weapons\P80-Reload.png" />
+    <None Remove="Content\Character\Weapons\P80-Shoot.png" />
     <None Remove="Content\Cursor\CursorArrow.xnb" />
+    <None Remove="Content\etc\Edited\1upgrade.png" />
+    <None Remove="Content\etc\Edited\2upgrade.png" />
+    <None Remove="Content\etc\Edited\3upgrade.png" />
+    <None Remove="Content\etc\Edited\FootStep.png" />
+    <None Remove="Content\etc\Edited\gunrange.png" />
+    <None Remove="Content\etc\Edited\HP.png" />
+    <None Remove="Content\etc\Edited\moveSpeed.png" />
     <None Remove="Content\Fonts\Arial16.xnb" />
     <None Remove="Content\Fonts\Roboto_Condensed-Bold.spritefont" />
     <None Remove="Content\Fonts\Rubik-Black.ttf" />
@@ -122,6 +148,31 @@
     <None Remove="Content\Object\Building\Crane - Head - A1-ii.png" />
     <None Remove="Content\Object\Building\Crane - Head - A2-i.png" />
     <None Remove="Content\Object\Building\Crane - Head - A2-ii.png" />
+    <None Remove="Content\sound\9mm Reload.wav" />
+    <None Remove="Content\sound\9mm Single.wav" />
+    <None Remove="Content\sound\Male\confirmation_10_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_1_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_2_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_3_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_4_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_5_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_6_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_7_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_8_alex.wav" />
+    <None Remove="Content\sound\Male\confirmation_9_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_10_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_1_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_2_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_3_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_4_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_5_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_6_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_7_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_8_alex.wav" />
+    <None Remove="Content\sound\Male\refusal_9_alex.wav" />
+    <None Remove="Content\sound\Modern15.wav" />
+    <None Remove="Content\sound\Modern8.wav" />
+    <None Remove="Content\sound\Shooting_Miss.wav" />
     <None Remove="Content\Tiles\Background - Archology South Dock Overlook.png" />
     <None Remove="Content\Tiles\Concrete Ground Square Tile.png" />
     <None Remove="Content\Tiles\Dusty Concrete -Light.png" />
@@ -203,6 +254,10 @@
     <None Remove="Content\Tiles\Urban Developed Ground Tile C.png" />
     <None Remove="Content\Tiles\Urban Developed Ground Tile D.png" />
     <None Remove="Content\Tiles\Urban Developed Ground Tile E.png" />
+    <None Remove="Content\UI\1upgrade-done.png" />
+    <None Remove="Content\UI\2upgrade-done.png" />
+    <None Remove="Content\UI\3upgrade-done.png" />
+    <None Remove="Content\UI\Attack.png" />
     <None Remove="Content\UI\BarWindow.png" />
     <None Remove="Content\UI\BtnExitNoOpacity.png" />
     <None Remove="Content\UI\BtnExitOpacity.png" />
@@ -238,6 +293,15 @@
     <None Remove="Content\UI\Checked_05.png" />
     <None Remove="Content\UI\Checked_06.png" />
     <None Remove="Content\UI\Circle.png" />
+    <None Remove="Content\UI\DeadEye.png" />
+    <None Remove="Content\UI\doubleAttack.png" />
+    <None Remove="Content\UI\emptyHpBar.png" />
+    <None Remove="Content\UI\emptystamina.png" />
+    <None Remove="Content\UI\explain.png" />
+    <None Remove="Content\UI\gundamage.png" />
+    <None Remove="Content\UI\HpBar.png" />
+    <None Remove="Content\UI\IconOutLine.png" />
+    <None Remove="Content\UI\IconOutLine2.png" />
     <None Remove="Content\UI\Panel1_NoOpacity592x975px.png" />
     <None Remove="Content\UI\Panel1_Opacity592x975px.png" />
     <None Remove="Content\UI\Panel2_NoOpacity591x975px.png" />
@@ -246,6 +310,7 @@
     <None Remove="Content\UI\PanelWindow.png" />
     <None Remove="Content\UI\SimpleBtn.xnb" />
     <None Remove="Content\UI\solid.xnb" />
+    <None Remove="Content\UI\stamina.png" />
     <None Remove="Content\UI\Window01.png" />
     <None Remove="Content\UI\Window02.png" />
     <None Remove="Content\UI\Window03.png" />
@@ -254,6 +319,16 @@
     <None Remove="Content\UI\Window04.png" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\sound\Modern15.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Character\Weapons\P80-Reload.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Character\Animation\Male\male_hit.png">
@@ -303,7 +378,97 @@
     <Content Include="Content\Character\Editor\zombie.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Character\Portrait\axeman1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\axeman2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\female1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\female2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\Mafia1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\Mafia2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\male1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\male2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\Medic1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\Medic2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\ninja1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\ninja2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\snipers1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\snipers2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\Survivor1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Portrait\Survivor2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Weapons\Glock - P80 [64x48].png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Character\Weapons\P80-Shoot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Cursor\CursorArrow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Modern8.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\1upgrade-done.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\1upgrade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\2upgrade-done.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\2upgrade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\3upgrade-done.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\3upgrade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\FootStep.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\gundamage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\gunrange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\HP.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\moveSpeed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fonts\Arial16.xnb">
@@ -579,6 +744,75 @@
     <Content Include="Content\Object\Building\Crane - Base Tower - A2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\sound\9mm Reload.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\9mm Single.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_10_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_1_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_2_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_3_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_4_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_5_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_6_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_7_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_8_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\confirmation_9_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_10_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_1_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_2_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_3_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_4_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_5_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_6_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_7_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_8_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Male\refusal_9_alex.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sound\Shooting_Miss.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Tiles\Background - Archology South Dock Overlook.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -822,6 +1056,9 @@
     <Content Include="Content\Tiles\Urban Developed Ground Tile E.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\UI\Attack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\BarWindow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -927,6 +1164,30 @@
     <Content Include="Content\UI\Circle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\UI\DeadEye.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\doubleAttack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\emptyHpBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\emptystamina.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\explain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\HpBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\IconOutLine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\IconOutLine2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\Panel1_NoOpacity592x975px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -949,6 +1210,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\solid.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\stamina.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\Window01.png">

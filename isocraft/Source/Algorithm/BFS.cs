@@ -405,10 +405,17 @@ namespace isocraft
         public void Attack_Hero(int hit_percent, int damage, Heros hero)
         {
             int random = RandomHelper.RandomInteger(0, 100);
-            if (random >= hit_percent)
+            if (100 - hit_percent <= random)
             {
+                SoundController.SoundChange("9mm Single");
                 hero.Get_Hit(damage);
             }
+
+            else
+            {
+                SoundController.SoundChange("Shooting_Miss");
+            }
+
         }
 
         public bool MousePoint_Moveable(Point point)
@@ -485,10 +492,17 @@ namespace isocraft
             int random = RandomHelper.RandomInteger(0, 100);
 
 
-            if (random >= hit_percent)
+            if (100 - hit_percent <= random)
             {
+                SoundController.SoundChange("9mm Single");
                 villain.Get_Hit(damage);
-            }   
+
+            }
+
+            else
+            {
+                SoundController.SoundChange("Shooting_Miss");
+            }
         }
 
         // range(길찾기)는 1.5배로 할것이고
@@ -729,6 +743,8 @@ namespace isocraft
 
         private void GetMap(Point point, int range)
         {
+           
+
             simpleMap = new bool[2*range+1, 2*range+1];
             bfsMap = new int[2 * range+1, 2* range+1];
             this.sight = range;
@@ -868,7 +884,7 @@ namespace isocraft
 
         public int[,] ReachAble(Point point, int range,SpriteEntity entity)
         {
-            
+       
 
             GetMap(point, range);
 
@@ -910,7 +926,7 @@ namespace isocraft
                 }
 
             }
-
+           
             isReady = entity;
 
             return bfsMap;

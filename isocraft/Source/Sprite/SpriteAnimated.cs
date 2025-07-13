@@ -55,7 +55,14 @@ namespace isocraft
             FrameAnimationList[idx].repeat = flag;
         }
 
-        public void AddAnimation(Vector2 frames, string path, int totalframes, int millitimePerFrame, string NAME, int idx,bool repeat = true)
+        public void Set_backtodefault(int idx, bool flag)
+        {
+            FrameAnimationList[idx].backtodefault = flag;
+        }
+
+
+
+        public void AddAnimation(Vector2 frames, string path, int totalframes, int millitimePerFrame, string NAME, int idx,bool repeat = true,bool backtodefault=false)
         {
             // model bound와 height는 변하지 않는다고 가정할때
             if (idx == 0)
@@ -69,10 +76,9 @@ namespace isocraft
             }
             FrameAnimationList.Add(new FrameAnimation(FlatMath.VectorZero, Animation_Set[idx].Frames, (int)Animation_Set[idx].Frames.X, Vector2.Zero, totalframes, AnimationDirNum, millitimePerFrame, NAME));
 
-            if (!repeat)
-            {
-                Set_repeat(idx,false);
-            }
+            Set_repeat(idx, repeat);
+            Set_backtodefault(idx, backtodefault);
+
         
         }
 
@@ -132,6 +138,12 @@ namespace isocraft
 
         public override void Update()
         {
+
+            if (FrameAnimationList[currentAnimation].finish && FrameAnimationList[currentAnimation].backtodefault)
+            {
+                ChangeCurrentAnimation(0);
+            }
+
             if (AnimationFlag && FrameAnimationList.Count > 0)
             {
                 FrameAnimationList[currentAnimation].Update();
@@ -167,12 +179,9 @@ namespace isocraft
                 throw new Exception("NO Animation Found");
             }
 
-            if (tempAnimation != currentAnimation)
-            {
-                FrameAnimationList[tempAnimation].Reset();
-            }
+            ChangeCurrentAnimation(tempAnimation);
 
-            currentAnimation = tempAnimation;
+   
         }
 
         public override void Draw(Sprites sprite)
@@ -195,6 +204,55 @@ namespace isocraft
                 Rectangle Source_rectangle = new Rectangle(0, 0, (int)Animation_Set[currentAnimation].FrameSize.X, (int)Animation_Set[currentAnimation].FrameSize.Y);
                 sprite.Draw(model, new Rectangle((int)(point.X ), (int)(point.Y ), (int)dims.X, (int)dims.Y), Source_rectangle, Color.White, 0f,
                     new Vector2((int)(model.Bounds.Width / (2 * Animation_Set[currentAnimation].Frames.X)), (int)(model.Bounds.Height / (2 * Animation_Set[currentAnimation].Frames.Y))));
+
+            }
+        }
+
+        public override void Draw(Sprites sprite,bool UI)
+        {
+            //hero 등에서는 이미 바꾸기때문
+            //     Game1.AntiAliasingShader(model, dims, Animation_Set[currentAnimation].FrameSize);
+
+            // 반에 걸쳐있는경우 계산해야함
+
+
+            if (UI)
+            {
+
+                if (AnimationFlag && FrameAnimationList.Count != 0 && FrameAnimationList[currentAnimation].Frames > 0)
+                {
+                 
+
+                    FrameAnimationList[currentAnimation].Draw(sprite, Animation_Set[currentAnimation].FrameSize, model, new Rectangle((int)(pos.X), (int)(pos.Y), (int)dims.X, (int)dims.Y), 0f, Color.White);
+                }
+                else
+                {
+
+                    Rectangle Source_rectangle = new Rectangle(0, 0, (int)Animation_Set[currentAnimation].FrameSize.X, (int)Animation_Set[currentAnimation].FrameSize.Y);
+                    sprite.Draw(model, new Rectangle((int)(pos.X), (int)(pos.Y), (int)dims.X, (int)dims.Y), Source_rectangle, Color.White, 0f,
+                        new Vector2((int)(model.Bounds.Width / (2 * Animation_Set[currentAnimation].Frames.X)), (int)(model.Bounds.Height / (2 * Animation_Set[currentAnimation].Frames.Y))));
+
+                }
+            }
+
+            else
+            {
+
+                if (AnimationFlag && FrameAnimationList.Count != 0 && FrameAnimationList[currentAnimation].Frames > 0)
+                {
+                
+
+                    FrameAnimationList[currentAnimation].Draw(sprite, Animation_Set[currentAnimation].FrameSize, model, new Rectangle((int)(pos.X+Game1.offset.X), (int)(pos.Y + Game1.offset.Y), (int)dims.X, (int)dims.Y), 0f, Color.White);
+                }
+                else
+                {
+
+                    Rectangle Source_rectangle = new Rectangle(0, 0, (int)Animation_Set[currentAnimation].FrameSize.X, (int)Animation_Set[currentAnimation].FrameSize.Y);
+                    sprite.Draw(model, new Rectangle((int)(pos.X + Game1.offset.X), (int)(pos.Y + Game1.offset.Y), (int)dims.X, (int)dims.Y), Source_rectangle, Color.White, 0f,
+                        new Vector2((int)(model.Bounds.Width / (2 * Animation_Set[currentAnimation].Frames.X)), (int)(model.Bounds.Height / (2 * Animation_Set[currentAnimation].Frames.Y))));
+
+                }
+
 
             }
         }

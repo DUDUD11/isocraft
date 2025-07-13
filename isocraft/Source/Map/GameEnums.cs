@@ -23,6 +23,8 @@ namespace isocraft
 
         public static int[,] b_5x5 = { { 100, 100, 100,100,100 }, { 100, 100, 100,100,100 }, { 100, 100, 100,100,100 }, { 100, 100, 100, 100, 100 }, { 100, 100, 100, 100, 100 } };
 
+        public static int entity_activity = 2;
+
         #endregion
 
         public static Dictionary<string, int[,]> BuildingDictionary = new Dictionary<string, int[,]>();
@@ -34,7 +36,6 @@ namespace isocraft
         {
             Building_init();
             Villian_init();
-
 
         }
 

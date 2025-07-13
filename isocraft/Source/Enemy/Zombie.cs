@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
+using static isocraft.Heros;
 using static isocraft.male;
 
 
@@ -72,6 +73,8 @@ namespace isocraft
         public override void Get_Hit(int damage)
         {
             if (Destroy) return;
+
+            updateRequired = true;
 
             cur_health -= damage;
 
@@ -368,7 +371,9 @@ namespace isocraft
 
         public override void Reset_act()
         {
+            if (status == zombie_Status.Dead) return;
             this.cur_act = act;
+            this.status = zombie_Status.Idle;
         }
 
 

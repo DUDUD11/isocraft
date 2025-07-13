@@ -40,9 +40,9 @@ namespace isocraft
             }
             EntityManager.Clear();
 
-            Save save = new Save();
+        ;
 
-            StageMap = save.LoadMapData(filename);
+            StageMap = Save.Instance.LoadMapData(filename);
 
             //            public List<List<Tuple<int, int>>> SpriteList;
             //public List<List<Object>> SpriteInfo;
@@ -95,6 +95,8 @@ namespace isocraft
 
                                         male Male = new male("Character\\Animation\\Male\\male_default", new Vector2(j, i), 1);
                                         EntityManager.AddHero(Male);
+
+                                      
                                         break;
                                 }
 

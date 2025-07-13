@@ -14,27 +14,56 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Text.Json;
+
+
+
+
+
+
+
+
+
+
+
 namespace isocraft
 {
     public class Save
     {
+        private static Save _instance;
         public static string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public static string gameName = "IsoCraft";
         public static string baseFolder = localAppDataPath + "\\" + gameName + "";
         public static string MapbaseFolder = localAppDataPath + "\\" + gameName + "\\Map";
+        public static string DatabaseFolder = localAppDataPath + "\\" + gameName + "\\Data";
 
-        public Save()
+
+        private Save()
         {
-         
-            CreateBaseFolders();
+
         }
-        public void CreateBaseFolders()
+
+        public static Save Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Save();
+                    CreateBaseFolders();
+                }
+                return _instance;
+            }
+        }
+
+
+        public static void CreateBaseFolders()
         {
             CreateFolder(baseFolder);
             CreateFolder(MapbaseFolder);
+            CreateFolder(DatabaseFolder);
         }
 
-        public void CreateFolder(string s)
+        public static void CreateFolder(string s)
         {
             DirectoryInfo CreateSiteDirectory = new DirectoryInfo(s);
             if (!CreateSiteDirectory.Exists)
@@ -61,6 +90,14 @@ namespace isocraft
             File.Delete(PATH);
         }
 
+        public void DeleteDataFile(string PATH)
+        {
+            PATH = DatabaseFolder + PATH;
+
+            File.Delete(PATH);
+        }
+
+
         public void SaveMapData(Map map, string filename)
         {
             filename = MapbaseFolder + "\\" + filename;
@@ -73,6 +110,23 @@ namespace isocraft
 
             File.WriteAllText(filename, json);
         }
+
+
+        public void SaveUpgradeData(UpgradeData upgradeData, string filename)
+        {
+            filename = DatabaseFolder + "\\" + filename;
+
+            string json = JsonSerializer.Serialize(upgradeData, new JsonSerializerOptions()
+            {
+                IncludeFields = true
+            });
+
+
+            File.WriteAllText(filename, json);
+        }
+
+
+
 
         public Map LoadMapData(string filepath)
         {
@@ -92,6 +146,26 @@ namespace isocraft
             Map map = JsonSerializer.Deserialize<Map>(json, jsonOptions);
 
             return map;
+        }
+
+        public UpgradeData LoadUpgradeData(string filepath)
+        {
+            filepath = DatabaseFolder + "\\" + filepath;
+
+
+            if (!File.Exists(filepath))
+            {
+                return null;
+            }
+            var jsonOptions = new JsonSerializerOptions()
+            {
+                IncludeFields = true
+            };
+
+            string json = File.ReadAllText(filepath);
+            UpgradeData upgradeData = JsonSerializer.Deserialize<UpgradeData>(json, jsonOptions);
+
+            return upgradeData;
         }
 
 

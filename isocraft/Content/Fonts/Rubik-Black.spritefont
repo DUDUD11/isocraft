@@ -52,12 +52,31 @@ with.
     For localized fonts you can leave this empty as the character range will be picked up
     from the Resource Files.
     -->
-    <CharacterRegions>
-      <CharacterRegion>
-        <Start>&#32;</Start>
-        <End>&#32;</End>
-      </CharacterRegion>
-    </CharacterRegions>
+	  <CharacterRegions>
+		  <!-- 숫자 0~9 -->
+		  <CharacterRegion>
+			  <Start>0</Start>
+			  <End>9</End>
+		  </CharacterRegion>
+
+		  <!-- 대문자 A~Z -->
+		  <CharacterRegion>
+			  <Start>A</Start>
+			  <End>Z</End>
+		  </CharacterRegion>
+
+		  <!-- 소문자 a~z -->
+		  <CharacterRegion>
+			  <Start>a</Start>
+			  <End>z</End>
+		  </CharacterRegion>
+
+		  <!-- 일반적인 특수기호 (공백부터 ~까지의 ASCII 기호) -->
+		  <CharacterRegion>
+			  <Start> </Start>
+			  <End>~</End>
+		  </CharacterRegion>
+	  </CharacterRegions>
     <!--
     ResourceFiles control the characters which will be in the font. It does this
     by scanning the text in each of the resource files and adding those specific

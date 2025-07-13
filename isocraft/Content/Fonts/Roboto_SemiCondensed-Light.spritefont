@@ -50,11 +50,30 @@ with.
     character set. The characters are ordered according to the Unicode standard.
     See the documentation for more information.
     -->
-    <CharacterRegions>
-      <CharacterRegion>
-        <Start>&#32;</Start>
-        <End>&#126;</End>
-      </CharacterRegion>
-    </CharacterRegions>
+	  <CharacterRegions>
+		  <!-- 숫자 0~9 -->
+		  <CharacterRegion>
+			  <Start>0</Start>
+			  <End>9</End>
+		  </CharacterRegion>
+
+		  <!-- 대문자 A~Z -->
+		  <CharacterRegion>
+			  <Start>A</Start>
+			  <End>Z</End>
+		  </CharacterRegion>
+
+		  <!-- 소문자 a~z -->
+		  <CharacterRegion>
+			  <Start>a</Start>
+			  <End>z</End>
+		  </CharacterRegion>
+
+		  <!-- 일반적인 특수기호 (공백부터 ~까지의 ASCII 기호) -->
+		  <CharacterRegion>
+			  <Start> </Start>
+			  <End>~</End>
+		  </CharacterRegion>
+	  </CharacterRegions>
   </Asset>
 </XnaContent>

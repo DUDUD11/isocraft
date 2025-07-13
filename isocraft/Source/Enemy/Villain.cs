@@ -106,6 +106,9 @@ namespace isocraft
        
         }
 
+        protected virtual void Dying()
+        { }
+
         public static Object ParseToObj(Villain villain)
         {
             Villain_st tmpvillain;
@@ -139,6 +142,10 @@ namespace isocraft
 
         }
 
+        public bool Die()
+        {
+            return this.cur_health <= 0;
+        }
 
 
         public virtual void Get_Hit(int damage)

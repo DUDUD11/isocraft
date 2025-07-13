@@ -30,6 +30,7 @@ namespace isocraft
         public Texture2D model;
         public string url;
         public bool Destroy = false;
+        public bool Cancel = false;
 
 
         public SpriteEntity(string path, Vector2 init_pos, Vector2 dims, int angle)
@@ -99,6 +100,11 @@ namespace isocraft
             throw new ArgumentNullException("draw method must override ");
         }
 
+        public virtual void Draw(Sprites sprite,bool flag)
+        {
+            throw new ArgumentNullException("draw method must override ");
+        }
+
         //public virtual void Draw(Sprites sprite, int dir)
         //{
         //    throw new ArgumentNullException("draw method must override ");
@@ -111,7 +117,7 @@ namespace isocraft
 
         public virtual void Turn_End()
         {
-            throw new ArgumentNullException("draw method must override ");
+            //throw new ArgumentNullException("draw method must override ");
 
         }
 

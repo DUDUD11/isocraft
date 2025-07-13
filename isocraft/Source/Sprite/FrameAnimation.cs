@@ -43,6 +43,8 @@ namespace isocraft
         public bool repeat = true;
 
         public int Dir;
+        public bool finish = false;
+        public bool backtodefault = false;
 
 
         public FrameAnimation(Vector2 SpriteDims, Vector2 sheetDims, int sheetXsize, Vector2 start, int totalframes, int dirNum, int timePerFrame, string NAME)
@@ -147,6 +149,8 @@ namespace isocraft
 
             if (totalframes > dirNum)
             {
+            
+
                 double tmptime = WorldTimer.Instance.totalTime();
                 bool framestep = false;
                 if (tmptime - curTime > frameTimer)
@@ -170,10 +174,12 @@ namespace isocraft
                             
 
                             hasFired = false;
+                         
                         }
 
                         else
                         {
+                            finish = true; 
                             currentFrame = totalframes - dirNum;
                         }
                     }
@@ -217,7 +223,7 @@ namespace isocraft
             sheetFrame.X = startFrame.X + Dir;
             sheetFrame.Y = startFrame.Y;
 
-  
+            finish = false;
             hasFired = false;
         }
 
@@ -227,10 +233,16 @@ namespace isocraft
         {
 
             // Game1.AntiAliasingShader(model,new Vector2(rectangle.Width,rectangle.Height),FrameSize);
+
+          
+            
+
             Source_rectangle = new Rectangle((int)(FrameSize.X * sheetFrame.X), (int)(FrameSize.Y * sheetFrame.Y), (int)FrameSize.X, (int)FrameSize.Y);
 
             int origin_x = (int)(model.Bounds.Width / (2 * sheet.X));
             int origin_y = (int)(model.Bounds.Height / (2 * sheet.Y));
+            
+
 
             sprite.Draw(model, rectangle, Source_rectangle, color, Angle, new Vector2(origin_x, origin_y));
 
